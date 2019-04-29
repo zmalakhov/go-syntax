@@ -1,5 +1,10 @@
 package main
 
+/**
+* Syntax Go. Homework 3
+* Zaur Malakhov, dated Apr 29, 2019
+*/
+
 import (
 	"fmt"
 )
@@ -104,7 +109,10 @@ func main() {
 	fmt.Println(car3.Car)
 
 
-	fmt.Println(car1, car2, car3, car4)
+	fmt.Println(car1)
+	fmt.Println(car2)
+	fmt.Println(car3)
+	fmt.Println(car4)
 
 
 }
