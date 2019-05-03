@@ -1,5 +1,10 @@
 package main
 
+/**
+* Syntax Go. Homework 4
+* Zaur Malakhov, dated May 03, 2019
+*/
+
 import (
 	"fmt"
 	"math"
