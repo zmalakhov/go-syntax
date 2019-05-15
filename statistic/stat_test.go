@@ -1,5 +1,10 @@
 package statistic
 
+/**
+* Syntax Go. Homework 6
+* Zaur Malakhov, dated May 15, 2019
+ */
+
 import "testing"
 
 type testpair struct {
