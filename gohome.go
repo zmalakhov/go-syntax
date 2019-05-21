@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 )
@@ -25,10 +26,22 @@ func end() {
 	// }
 
 	comm := "exit"
-	s := []byte(comm)
+	// s := []byte(comm)
 
-	if s == os.Stdin.Read(make([]byte, 4)) {
-		fmt.Println(s)
+	// if s == os.Stdin.Read(make([]byte, 4)) {
+	// 	fmt.Println(s)
+	// }
+	consolereader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter 'exit' to exit: ")
+
+	input, err := consolereader.ReadString('\n') // this will prompt the user for input
+
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	if input == comm {
+		fmt.Println(input)
 	}
 
 }

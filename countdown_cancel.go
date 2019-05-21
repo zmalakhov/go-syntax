@@ -1,22 +1,32 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"time"
 )
 
 func main() {
+
 	cancel := make(chan int)
 
 	go func() {
-		//os.Stdin.Read(make([]byte, 1))
 
-		var comm string
+		consolereader := bufio.NewReader(os.Stdin)
+		fmt.Println("Enter 'exit' to exit: ")
 
-		fmt.Scan(&comm)
-		if comm == "e" {
+		input, err := consolereader.ReadString('\n') // this will prompt the user for input
+
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
+		if input == "e" {
 			cancel <- 1
 		}
+
+		//os.Stdin.Read(make([]byte, 1))
 
 		//cancel <- 1
 	}()
@@ -25,7 +35,7 @@ func main() {
 	tick := make(<-chan time.Time)
 	tick = time.Tick(1 * time.Second)
 
-	for countdown := 10; countdown > 0; countdown-- {
+	for countdown := 1000; countdown > 0; countdown-- {
 		select {
 		case moment := <-tick:
 			fmt.Println(moment.Format("15:04:05"), countdown)
